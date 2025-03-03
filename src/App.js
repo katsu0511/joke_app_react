@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import { Suspense } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ErrorBoundary } from 'react-error-boundary';
+import Jokes from './Jokes';
 import './App.css';
+
+const cli = new QueryClient({
+  defaultOptions: {
+    queries: {
+      suspense: true,
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main>
+      <header>
+        <h1>Jokes</h1>
       </header>
-    </div>
+      <Suspense fallback={<p>Loading...</p>}>
+        <ErrorBoundary fallback={<p>Error has happened.</p>}>
+          <QueryClientProvider client={cli}>
+            <Jokes />
+          </QueryClientProvider>
+        </ErrorBoundary>
+      </Suspense>
+    </main>
   );
 }
 

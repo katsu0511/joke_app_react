@@ -14,6 +14,9 @@ export default function Wanted() {
       <div className='joke'>
         <p>Type: {data.type}</p>
         <p>Setup: {data.setup}</p>
+        <p>What is the punchline?</p>
+        <input type='text' />
+        <input type='button' />
         <p>Punchline: {data.punchline}</p>
       </div>
     </section>

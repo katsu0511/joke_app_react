@@ -16,7 +16,7 @@ export default function Wanted() {
         <p>Setup: {data.setup}</p>
         <p>What is the punchline?</p>
         <input type='text' />
-        <input type='button' />
+        <input type='button' value='push' />
         <p>Punchline: {data.punchline}</p>
       </div>
     </section>

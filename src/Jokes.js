@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from 'react-query';
 
 const fetchJokes = async () => {
@@ -7,6 +8,7 @@ const fetchJokes = async () => {
 };
 
 export default function Wanted() {
+  const [punchline, setPunchline] = useState("");
   const { data } = useQuery('jokes', fetchJokes);
 
   return (

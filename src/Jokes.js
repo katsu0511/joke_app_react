@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useQuery } from 'react-query';
 
 const fetchJokes = async () => {
@@ -8,12 +7,17 @@ const fetchJokes = async () => {
 };
 
 export default function Wanted() {
-  const [punchline, setPunchline] = useState("");
   const { data } = useQuery('jokes', fetchJokes);
 
   function putPunchline() {
     const answer = document.getElementById('answer');
-    setPunchline(answer.value);
+    const judge = document.getElementById('judge');
+    const punchline = document.getElementById('punchline');
+    if (answer.value === data.punchline)
+      judge.textContent = '◯';
+    else
+      judge.textContent = '×';
+    punchline.textContent = data.punchline;
   }
 
   return (
@@ -24,7 +28,8 @@ export default function Wanted() {
         <p>What is the punchline?</p>
         <input type='text' id='answer' />
         <input type='button' value='push' onClick={putPunchline} />
-        <p>Punchline: {data.punchline}</p>
+        <p id='judge'></p>
+        <p>Punchline: <span id='punchline'></span></p>
       </div>
     </section>
   );

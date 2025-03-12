@@ -29,7 +29,7 @@ export default function Wanted() {
         <input type='text' id='answer' />
         <input type='button' value='push' onClick={putPunchline} />
         <p id='judge'></p>
-        <p>Punchline: <span id='punchline'></span></p>
+        <p>Punchline: <span id='punchline'>?</span></p>
       </div>
     </section>
   );

@@ -19,7 +19,7 @@ function App() {
         <h1>Jokes</h1>
       </header>
       <Suspense fallback={<p></p>}>
-        <ErrorBoundary fallback={<p>Error has happ</p>}>
+        <ErrorBoundary fallback={<p>Error has hap</p>}>
           <QueryClientProvider client={cli}>
             <Jokes />
           </QueryClientProvider>

@@ -18,7 +18,7 @@ function App() {
       <header>
         <h1>Jokes</h1>
       </header>
-      <Suspense fallback={<p></p>}>
+      <Suspense fallback={<></>}>
         <ErrorBoundary fallback={<p></p>}>
           <QueryClientProvider client={cli}>
             <Jokes />

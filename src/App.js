@@ -19,7 +19,7 @@ function App() {
         <h1>Jokes</h1>
       </header>
       <Suspense>
-        <ErrorBoundary fallback>
+        <ErrorBoundary>
           <QueryClientProvider client={cli}>
             <Jokes />
           </QueryClientProvider>

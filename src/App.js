@@ -18,7 +18,7 @@ function App() {
       <header>
         <h1>Jokes</h1>
       </header>
-      <Suspense>
+      <Suspense >
         <ErrorBoundary={}>
           <QueryClientProvider client={cli}>
             <Jokes />

@@ -1,4 +1,5 @@
 import { useQuery } from 'react-query';
+import './Jokes.css';
 
 const fetchJokes = async () => {
   const res = await fetch(`https://official-joke-api.appspot.com/jokes/random`);

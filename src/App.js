@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 import Jokes from './Jokes';
+import Loading from './Loading';
+import Error from './Error';
 import './App.css';
 
 const cli = new QueryClient({
@@ -18,8 +20,8 @@ function App() {
       <header>
         <h1>Jokes</h1>
       </header>
-      <Suspense>
-        <ErrorBoundary>
+      <Suspense fallback={<Loading />}>
+        <ErrorBoundary  fallback={<Error />}>
           <QueryClientProvider client={cli}>
             <Jokes />
           </QueryClientProvider>
